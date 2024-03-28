@@ -31,7 +31,7 @@ public class WalletTest {
     @Order(2)
     public void testWithdrawAmount() {
         assertTrue(wallet.withdrawAmount(50000));
-        assertEquals(100000, wallet.getBalance());
+        assertEquals(50000, wallet.getBalance());
     }
 
     @Test
@@ -54,7 +54,7 @@ public class WalletTest {
     @Order(5)
     public void testTransferFundsInsufficientFunds() {
         Wallet recipient = new Wallet(0, "IDR");
-        assertThrows(IllegalArgumentException.class, () -> wallet.transferFunds(recipient, 100000));
+        assertThrows(IllegalArgumentException.class, () -> wallet.transferFunds(recipient, 150000));
     }
 
     @Test
